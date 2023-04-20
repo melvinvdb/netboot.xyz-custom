@@ -10,6 +10,9 @@ item --gap Allbootdisks
 item Dos6.22 ${space} Dos6.22
 item Windows98_SE ${space} Windows98_SE
 item Windows98_SE_No_Ramdrive ${space} Windows98_SE_No_Ramdrive
+item --gap Other bootdisks
+item plpbt ${space} Plop Boot Manager Boot
+item plpbtin ${space} Plop Boot Manager Install
 choose imgname || goto custom_exit
 echo ${cls}
 goto custom_install
@@ -18,7 +21,7 @@ goto custom_exit
 :custom_install
 imgfree
 kernel ${memdisk}
-initrd ${base_url}/allbootdisks/${imgname}.img
+initrd ${base_url}/floppies/${imgname}.img
 boot || goto custom_exit
 
 :sample_second_menu
