@@ -18,7 +18,7 @@ goto custom_exit
 :custom_install
 imgfree
 kernel ${memdisk}
-initrd ${base_url}/allbootdisks/${imgname}.zip
+initrd ${base_url}/allbootdisks/${imgname}.img
 boot || goto custom_exit
 
 :sample_second_menu
