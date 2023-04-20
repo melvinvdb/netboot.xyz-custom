@@ -1,12 +1,30 @@
 #!ipxe
 ###
-### netboot.xyz-custom menu
+# allbootdisk images
 ###
 
-:start
-echo Hello world!
-sleep 10
+:custom
+clear imgname
+menu Bootdisks
+item --gap Allbootdisks
+item Dos6.22 ${space} Dos6.22
+item Windows98_SE ${space} Windows98_SE
+item Windows98_SE_No_Ramdrive ${space} Windows98_SE_No_Ramdrive
+choose imgname || goto custom_exit
+echo ${cls}
+goto custom_install
 goto custom_exit
 
+:custom_install
+imgfree
+kernel ${memdisk}
+initrd ${base_url}/allbootdisks/${imgname}.zip
+boot || goto custom_exit
+
+:sample_second_menu
+echo Chains into another menu...
+chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master/custom1.ipxe || goto custom
+
 :custom_exit
-exit 0
+chain utils.ipxe
+exit
