@@ -13,6 +13,7 @@ item Windows98_SE_No_Ramdrive ${space} Windows98_SE_No_Ramdrive
 item --gap Other bootdisks
 item plpbt ${space} Plop Boot Manager Boot
 item plpbtin ${space} Plop Boot Manager Install
+item bartdisk ${space} Bartdisk (WinXP install)
 choose imgname || goto custom_exit
 echo ${cls}
 goto custom_install
